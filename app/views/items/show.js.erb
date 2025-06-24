@@ -1,0 +1,9 @@
+$('#items-container').html('<%= j render partial: "show", locals: { item: @item } %>');
+
+  $('.back-link').on('click', function () {
+    $.ajax({
+      url: '/items/filter',
+      method: 'GET',
+      dataType: 'script',
+    });
+  });

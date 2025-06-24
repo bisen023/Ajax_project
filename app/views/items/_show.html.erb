@@ -1,0 +1,16 @@
+<%= item.id %>
+
+<%= link_to "back", "javascript:void(0);", class: 'back-link'%>
+<%= button_to "delete", item_path(item.id), method: :delete, class: 'delete-btn', remote: true %>
+<%= link_to "edit", "javascript:void(0);", class: 'edit-link', data:{id: item.id} %>
+
+<script>
+  $('.edit-link').on('click',function () {
+    var id = $(this).data('id');
+    $.ajax({
+      url: '/items/' + id+'/edit',
+      method: 'GET',
+      dataType: 'script'
+    });
+  });
+</script>

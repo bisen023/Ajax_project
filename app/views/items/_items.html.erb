@@ -1,0 +1,10 @@
+<% if items.any? %>
+  <% items.each do |item| %>
+  <div>  <%= link_to item.name, "javascript:void(0);", class: 'show-link', data: { id: item.id }%>- <%= item.category %></div>
+  <% end %>
+<% else %>
+  <p>No items found.</p>
+<% end %>
+<div class="pagination">
+  <%= paginate @items %>
+</div>

@@ -1,0 +1,12 @@
+$('#items-container').html('<%= j render partial: "items", locals: { items: @items } %>');
+
+  $('.show-link').on('click',function (e) {
+  	e.preventDefault();
+
+    var id = $(this).data('id');
+    $.ajax({
+      url: '/items/' + id,
+      method: 'GET',
+      dataType: 'script'
+    });
+  });
